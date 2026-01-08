@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Menu, X, ArrowUpRight, CheckCircle2, Globe, BarChart3, Lock, Calendar, Star, Users } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const AscensusModern = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -61,15 +62,35 @@ const AscensusModern = () => {
       {/* Hero Section */}
       <header className="pt-20 min-h-screen flex flex-col md:flex-row">
         <div className="w-full md:w-1/2 flex flex-col justify-center px-6 md:px-16 py-20 bg-white">
-          <div className="max-w-xl">
-            <h1 className="font-display text-5xl md:text-7xl leading-[1] text-slate-900 mb-8">
+          <motion.div 
+            className="max-w-xl"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <motion.h1 
+              className="font-display text-5xl md:text-7xl leading-[1] text-slate-900 mb-8"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
               Stop chasing clients. <br />
               <span className="italic font-light text-amber-700">Start getting them constantly.</span>
-            </h1>
-            <p className="font-body text-lg text-slate-600 leading-relaxed mb-10 max-w-md">
+            </motion.h1>
+            <motion.p 
+              className="font-body text-lg text-slate-600 leading-relaxed mb-10 max-w-md"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
               A high-touch mastermind for service-based business owners who want more clients consistently, practical strategies to grow, and a results-driven community – without burnout or posting 24/7.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            </motion.p>
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
               <button className="bg-slate-900 text-white px-8 py-4 font-body font-medium rounded-sm hover:bg-slate-800 transition-all flex justify-between items-center sm:w-auto w-full shadow-lg shadow-slate-900/10">
                 <span>Claim Your Seat</span>
                 <ArrowUpRight className="ml-4 text-amber-400" />
@@ -77,29 +98,45 @@ const AscensusModern = () => {
               <button onClick={() => scrollToSection('who-for')} className="border border-slate-200 px-8 py-4 font-body font-medium rounded-sm hover:bg-slate-50 transition-all text-center text-slate-600">
                 Learn More
               </button>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
 
-        <div className="w-full md:w-1/2 h-[50vh] md:h-auto relative bg-slate-100 overflow-hidden">
+        <motion.div 
+          className="w-full md:w-1/2 h-[50vh] md:h-auto relative bg-slate-100 overflow-hidden"
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.3 }}
+        >
           <img 
             src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
             alt="Mastermind Session" 
             className="w-full h-full object-cover grayscale opacity-90 hover:scale-105 transition-transform duration-[2s]"
           />
           <div className="absolute inset-0 bg-slate-900/10 pointer-events-none"></div>
-          <div className="absolute bottom-8 left-8 bg-white/90 backdrop-blur p-6 max-w-xs border-l-4 border-amber-600 shadow-xl">
+          <motion.div 
+            className="absolute bottom-8 left-8 bg-white/90 backdrop-blur p-6 max-w-xs border-l-4 border-amber-600 shadow-xl"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+          >
             <p className="font-body text-xs font-bold uppercase tracking-wider mb-1 text-slate-500">Next Session</p>
             <p className="font-display text-2xl italic text-slate-900">Wednesdays, 6:30pm UK</p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </header>
 
       {/* Who is this for? */}
       <section id="who-for" className="py-24 px-6 md:px-16 border-b border-slate-100 bg-slate-50">
         <div className="max-w-screen-2xl mx-auto">
           <div className="grid md:grid-cols-12 gap-12">
-            <div className="md:col-span-5">
+            <motion.div 
+              className="md:col-span-5"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
+            >
               <h2 className="font-body text-xs font-bold uppercase tracking-[0.2em] text-amber-700 mb-4">Target Audience</h2>
               <h3 className="font-display text-4xl md:text-5xl leading-tight mb-6 text-slate-900">
                 Who is Ascensus <br />
@@ -112,8 +149,14 @@ const AscensusModern = () => {
                   "Not for beginners, side hustlers, e-commerce or product sellers. Only serious service-based business owners thrive here."
                 </p>
               </div>
-            </div>
-            <div className="md:col-span-7 pt-4">
+            </motion.div>
+            <motion.div 
+              className="md:col-span-7 pt-4"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
               <p className="font-body text-slate-700 text-xl leading-relaxed mb-10">
                 This is for service-based business owners who are ready to finally have a steady flow of clients.
               </p>
@@ -124,19 +167,32 @@ const AscensusModern = () => {
                     "Value accountability, peer support and measurable results",
                     "Want to stop worrying about inconsistent income"
                  ].map((item, i) => (
-                    <div key={i} className="flex items-start group">
+                    <motion.div 
+                      key={i} 
+                      className="flex items-start group"
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: i * 0.1 }}
+                    >
                        <CheckCircle2 className="w-6 h-6 text-amber-600 mr-5 group-hover:text-slate-900 transition-colors mt-1 shrink-0" />
                        <span className="font-body text-xl text-slate-800 font-light">{item}</span>
-                    </div>
+                    </motion.div>
                  ))}
               </div>
               
-              <div className="mt-16">
+              <motion.div 
+                className="mt-16"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
                  <button className="text-slate-900 font-bold border-b-2 border-amber-500 pb-1 hover:text-amber-700 hover:border-amber-700 transition-colors uppercase tracking-widest text-sm">
                    Claim Your Seat - Application Only
                  </button>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -144,14 +200,26 @@ const AscensusModern = () => {
       {/* Inside Ascensus / Benefits Grid */}
       <section id="inside" className="py-24 px-6 md:px-16 bg-white">
         <div className="max-w-screen-2xl mx-auto">
-          <div className="mb-20">
+          <motion.div 
+            className="mb-20"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="font-display text-4xl md:text-5xl mb-6 text-slate-900">Inside Ascensus Society</h2>
             <p className="font-body text-slate-500 max-w-xl text-lg">Predictable clients. Practical support. Premium environment.</p>
-          </div>
+          </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-l border-slate-100">
             {/* Card 1 */}
-            <div className="p-12 border-r border-b border-slate-100 hover:bg-slate-50 transition-colors group">
+            <motion.div 
+              className="p-12 border-r border-b border-slate-100 hover:bg-slate-50 transition-colors group"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0 }}
+            >
               <Calendar className="w-10 h-10 text-amber-600 mb-6 group-hover:scale-110 transition-transform" />
               <h3 className="font-display text-2xl mb-3 text-slate-900">Weekly Mastermind Sessions</h3>
               <p className="font-body text-slate-500 text-sm leading-relaxed mb-4">
@@ -161,46 +229,76 @@ const AscensusModern = () => {
                  <li>• Guided strategy discussions</li>
                  <li>• Session recordings available</li>
               </ul>
-            </div>
+            </motion.div>
             
             {/* Card 2 */}
-            <div className="p-12 border-r border-b border-slate-100 hover:bg-slate-50 transition-colors group">
+            <motion.div 
+              className="p-12 border-r border-b border-slate-100 hover:bg-slate-50 transition-colors group"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
               <BarChart3 className="w-10 h-10 text-amber-600 mb-6 group-hover:scale-110 transition-transform" />
               <h3 className="font-display text-2xl mb-3 text-slate-900">Hot Seats & Proven Systems</h3>
               <p className="font-body text-slate-500 text-sm leading-relaxed">
                 Personalized guidance on offers, pricing, and client acquisition. Attract clients without posting constantly or burning out.
               </p>
-            </div>
+            </motion.div>
 
             {/* Card 3 */}
-            <div className="p-12 border-r border-b border-slate-100 hover:bg-slate-50 transition-colors group">
+            <motion.div 
+              className="p-12 border-r border-b border-slate-100 hover:bg-slate-50 transition-colors group"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               <Star className="w-10 h-10 text-amber-600 mb-6 group-hover:scale-110 transition-transform" />
               <h3 className="font-display text-2xl mb-3 text-slate-900">Monthly 1:1 Giveaway</h3>
               <p className="font-body text-slate-500 text-sm leading-relaxed">
                 One member per month gets a private strategy session with Dr. Nick to accelerate business growth.
               </p>
-            </div>
+            </motion.div>
 
             {/* Card 4 */}
-            <div className="p-12 border-r border-b border-slate-100 hover:bg-slate-50 transition-colors group">
+            <motion.div 
+              className="p-12 border-r border-b border-slate-100 hover:bg-slate-50 transition-colors group"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
               <Users className="w-10 h-10 text-amber-600 mb-6 group-hover:scale-110 transition-transform" />
               <h3 className="font-display text-2xl mb-3 text-slate-900">Results-Driven Community</h3>
               <p className="font-body text-slate-500 text-sm leading-relaxed">
                 Peer support from serious service-based business owners. No fluff, just high-level strategy.
               </p>
-            </div>
+            </motion.div>
 
             {/* Card 5 */}
-            <div className="p-12 border-r border-b border-slate-100 hover:bg-slate-50 transition-colors group">
+            <motion.div 
+              className="p-12 border-r border-b border-slate-100 hover:bg-slate-50 transition-colors group"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
               <Globe className="w-10 h-10 text-amber-600 mb-6 group-hover:scale-110 transition-transform" />
               <h3 className="font-display text-2xl mb-3 text-slate-900">Luxury Networking</h3>
               <p className="font-body text-slate-500 text-sm leading-relaxed">
                 Curated, high-end gatherings for meaningful business relationships. Forge partnerships without awkward pitching.
               </p>
-            </div>
+            </motion.div>
 
              {/* Card 6 - CTA */}
-             <div className="p-12 border-r border-b border-slate-100 bg-slate-900 flex flex-col justify-center items-center text-center group relative overflow-hidden">
+             <motion.div 
+               className="p-12 border-r border-b border-slate-100 bg-slate-900 flex flex-col justify-center items-center text-center group relative overflow-hidden"
+               initial={{ opacity: 0, y: 30 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true, margin: "-50px" }}
+               transition={{ duration: 0.6, delay: 0.5 }}
+             >
               <div className="absolute inset-0 bg-amber-600/10 group-hover:bg-amber-600/20 transition-colors"></div>
               <h3 className="font-display text-3xl mb-4 text-white relative z-10">Why This Works?</h3>
               <p className="font-body text-slate-300 text-sm leading-relaxed mb-8 relative z-10">
@@ -209,7 +307,7 @@ const AscensusModern = () => {
               <button className="bg-white text-slate-900 px-8 py-3 rounded-sm font-body text-sm font-bold hover:bg-amber-50 transition-colors relative z-10">
                 Join The Mastermind
               </button>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -217,13 +315,19 @@ const AscensusModern = () => {
       {/* Process Section - Horizontal Timeline */}
       <section id="process" className="py-24 px-6 md:px-16 bg-slate-50 border-t border-slate-200">
          <div className="max-w-screen-2xl mx-auto">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-16">
+            <motion.div 
+              className="flex flex-col md:flex-row justify-between items-end mb-16"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
+            >
                <div>
                   <h2 className="font-body text-xs font-bold uppercase tracking-[0.2em] text-amber-700 mb-4">How to Join</h2>
                   <h3 className="font-display text-4xl leading-tight text-slate-900">Membership Process</h3>
                </div>
                <p className="font-body text-slate-500 mt-4 md:mt-0 font-medium">One membership. One standard.</p>
-            </div>
+            </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                {[
@@ -232,26 +336,45 @@ const AscensusModern = () => {
                   { num: "03", title: "Confirmation", desc: "Membership verified and approved." },
                   { num: "04", title: "Immediate Access", desc: "Unlock sessions, recordings & events." }
                ].map((step, i) => (
-                  <div key={i} className="relative pt-8 border-t border-slate-300 group hover:border-amber-600 transition-colors">
+                  <motion.div 
+                    key={i} 
+                    className="relative pt-8 border-t border-slate-300 group hover:border-amber-600 transition-colors"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: i * 0.1 }}
+                  >
                      <span className="absolute -top-3 left-0 bg-slate-50 pr-4 font-display text-lg text-slate-400 group-hover:text-amber-600 transition-colors">{step.num}</span>
                      <h4 className="font-display text-2xl mb-2 text-slate-900">{step.title}</h4>
                      <p className="font-body text-sm text-slate-500">{step.desc}</p>
-                  </div>
+                  </motion.div>
                ))}
             </div>
             
-            <div className="mt-20 text-center">
+            <motion.div 
+              className="mt-20 text-center"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
                <button className="bg-slate-900 text-white px-10 py-4 font-body font-medium rounded-sm hover:bg-amber-700 transition-colors shadow-xl">
                   Apply Now - Limited Seats
                </button>
-            </div>
+            </motion.div>
          </div>
       </section>
 
       {/* Founder Section */}
       <section id="founder" className="py-24 px-6 md:px-16 bg-white border-t border-slate-100">
         <div className="max-w-screen-2xl mx-auto flex flex-col md:flex-row items-center">
-          <div className="w-full md:w-5/12 mb-10 md:mb-0">
+          <motion.div 
+            className="w-full md:w-5/12 mb-10 md:mb-0"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+          >
              <div className="relative aspect-[3/4] overflow-hidden bg-slate-100">
                 <div className="absolute top-4 left-4 right-4 bottom-4 border border-amber-200 z-10 pointer-events-none"></div>
                 <img 
@@ -260,8 +383,14 @@ const AscensusModern = () => {
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 />
              </div>
-          </div>
-          <div className="w-full md:w-7/12 md:pl-20">
+          </motion.div>
+          <motion.div 
+            className="w-full md:w-7/12 md:pl-20"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
             <h2 className="font-body text-xs font-bold uppercase tracking-[0.2em] text-amber-700 mb-6">About Your Host</h2>
             <h3 className="font-display text-5xl md:text-6xl text-slate-900 mb-6">Dr. Nick.</h3>
             
@@ -281,7 +410,7 @@ const AscensusModern = () => {
             <button className="text-slate-900 font-bold border-b-2 border-slate-900 pb-1 hover:text-amber-700 hover:border-amber-700 transition-colors uppercase tracking-widest text-sm">
               Claim Your Seat
             </button>
-          </div>
+          </motion.div>
         </div>
       </section>
 
