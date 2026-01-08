@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 const AscensusModern = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const scrollToSection = (id) => {
+  const scrollToSection = (id: string) => {
     setIsMobileMenuOpen(false);
     const element = document.getElementById(id);
     if (element) {
